@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 
 /**
@@ -14,11 +16,25 @@ import android.widget.RadioGroup;
  */
 public class Color_Fragment extends Fragment {
     RadioGroup radioGroup;
-     ColorChangeListener colorChangeListener;
+    EditText sendInfo;
+    Button submit;
+    ColorChangeListener colorChangeListener;
+    SendInfoListener sendInfoListener;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.color_fragment,container,false);
+        sendInfo = (EditText)view.findViewById(R.id.inText);
+        submit = (Button)view.findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Data =  sendInfo.getText().toString();
+                sendInfoListener.Send_update_Info(Data);
+
+            }
+        });
         radioGroup =  (RadioGroup) view.findViewById(R.id.fr_radioG);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -41,17 +57,26 @@ public class Color_Fragment extends Fragment {
         return view;
     }
 
+
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-       try {
-           colorChangeListener = (ColorChangeListener)activity;
-       }
-       catch (Exception ex){}
+        try {
+            colorChangeListener = (ColorChangeListener)activity;
+            sendInfoListener =(SendInfoListener)activity;
+
+        }
+        catch (Exception ex){}
     }
 
-    public interface  ColorChangeListener{
+    public interface  SendInfoListener{
+        public void Send_update_Info(String Data);
+
+    }    public interface  ColorChangeListener{
         public void colorChanged(String color);
 
     }
+
+
 }

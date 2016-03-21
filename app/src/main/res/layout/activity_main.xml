@@ -16,9 +16,8 @@ android:id="@+id/mainAct"
         android:layout_height="wrap_content"
         android:text="Fragment Communication..."
         android:id="@+id/title"
-        android:textAppearance="?android:textAppearanceLarge"
         android:gravity="center"/>
-
+<!--
     <RelativeLayout
         android:layout_marginTop="25dp"
         android:background="#00FFFF"
@@ -26,5 +25,26 @@ android:id="@+id/mainAct"
         android:layout_height="300dp"
         android:id="@+id/fr_container">
     </RelativeLayout>
+    -->
+
+
+    <fragment
+        android:layout_marginTop="45dp"
+        android:background="#00FF00"
+        android:name="tech.sree.com.fragmentcommunication.Color_Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/fr_radioG1"  >
+    </fragment>
+
+    <fragment
+        android:layout_marginTop="85dp"
+        android:background="#00FFFF"
+        android:name="tech.sree.com.fragmentcommunication.NameFragment"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/fr21"  >
+    </fragment>
+
 
 </LinearLayout>

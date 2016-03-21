@@ -3,9 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RadioGroup
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+      android:layout_gravity="center"
         android:id="@+id/fr_radioG"
+        android:orientation="horizontal"
         android:textAppearance="?android:textAppearanceLarge"
         android:background="#eff4ed">
         <RadioButton
@@ -29,5 +33,20 @@
             android:text="BLUE"
             android:textColor="#0000FF"/>
     </RadioGroup>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inText"
+        android:hint="Enter Text for Fr2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit"
+        android:onClick="sendInfoToOtherFragment"
+        android:layout_gravity="center"
+        android:text="Submit"/>
 
 </LinearLayout>
